@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UJIAN SEKOLAH TAHUN AJARAN 2025/2026 - SMP NEGERI 1 KARIMUN</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animasi kustom */
+    .bounce-short {
+      animation: bounce 0.5s ease-in-out 1;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-900 min-h-screen flex flex-col justify-between">
+
+  <!-- ================= HEADER UTAMA ================= -->
+  <header class="bg-blue-800 text-white py-4 px-6 shadow-md border-b-4 border-yellow-500">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
+      <div class="flex flex-col md:flex-row items-center gap-4">
+        <!-- Logo ditiadakan untuk tampilan minimalis -->
+        <div>
+          <h1 class="text-lg md:text-xl font-extrabold tracking-wide uppercase">Sumatif Akhir Semester Genap TA 2025/2026</h1>
+          <p class="text-xs md:text-sm text-blue-200">SMP NEGERI 1 KARIMUN • BIDANG STUDI SENI TARI (KELAS IX)</p>
+        </div>
+      </div>
+      <div id="header-user-info" class="hidden text-xs md:text-sm bg-blue-900 py-1.5 px-3 rounded-lg border border-blue-700">
+        <span class="font-bold text-yellow-300" id="display-student-name"></span> (<span id="display-student-class"></span>)
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= CONTAINER UTAMA ================= -->
+  <main class="flex-grow max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col justify-center">
+
+    <!-- 1. TAMPILAN LOGIN (INPUT TOKEN & DATA) -->
+    <section id="view-login" class="flex justify-center items-center py-8">
+      <div class="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full border-t-8 border-blue-600 transition-all">
+        <div class="text-center mb-6">
+          <!-- Logo ditiadakan untuk tampilan minimalis -->
+          <h2 class="text-xl md:text-2xl font-bold text-gray-800">Identitas Peserta Ujian</h2>
+          <p class="text-xs text-gray-500 mt-1">Harap isi data diri Anda dengan benar sebelum memasukkan token awal.</p>
+        </div>
+
+        <form id="form-login" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">Nama Lengkap Murid</label>
+            <input required id="input-name" type="text" class="mt-1 w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition" placeholder="Masukkan nama lengkap">
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">Jenis Kelamin</label>
+              <select id="select-gender" class="mt-1 w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white transition">
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">Kelas</label>
+              <select id="select-class" class="mt-1 w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white transition">
+                <option value="9.5">9.5</option>
+                <option value="9.6">9.6</option>
+                <option value="9.7">9.7</option>
+                <option value="9.8">9.8</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">Token Ujian Utama</label>
+            <input required id="input-token" type="text" class="mt-1 w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none tracking-widest uppercase font-bold text-center transition" placeholder="TARI123">
+          </div>
+
+          <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3.5 rounded-xl font-bold transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            MULAI UJIAN SEKARANG
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. TAMPILAN LOCK SCREEN CHEAT (PERLU TOKEN PENGGANTI) -->
+    <section id="view-cheat-lock" class="hidden flex justify-center items-center py-8">
+      <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full border-t-8 border-red-600 text-center bounce-short">
+        <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+        </div>
+        <h2 class="text-2xl font-black text-red-600">🚨 KECURANGAN TERDETEKSI 🚨</h2>
+        <p class="text-sm text-gray-600 mt-2 mb-6">
+          Anda terdeteksi berpindah layar/aplikasi atau meminimalkan jendela ujian.<br>
+          <strong class="text-red-700">Skor Anda dikurangi 2 poin secara otomatis.</strong><br>
+          Halaman dikunci, silakan hubungi pengawas untuk meminta token pemulihan berikutnya.
+        </p>
+
+        <form id="form-unlock" class="space-y-4">
+          <div>
+            <label id="label-token-req" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Masukkan Token Pemulihan Ke-2</label>
+            <input required id="input-unlock-token" type="text" class="w-full p-3 border-2 border-red-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-none tracking-widest uppercase font-extrabold text-center text-lg text-red-700 transition" placeholder="ST 123">
+          </div>
+          <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white p-3.5 rounded-xl font-bold transition shadow-md">
+            PULIHKAN JENDELA UJIAN
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 3. PANEL DASHBOARD UJIAN UTAMA -->
+    <section id="view-exam" class="hidden flex flex-col lg:flex-row gap-6 py-4">
+      
+      <!-- Kiri: Peta Navigasi Soal -->
+      <aside class="w-full lg:w-1/4 bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex flex-col">
+        <div class="pb-4 mb-4 border-b border-gray-100">
+          <h3 class="font-bold text-md text-gray-500 uppercase tracking-wider">Status Ujian</h3>
+          <div class="mt-2 flex items-center justify-between">
+            <span class="text-xs bg-red-100 text-red-700 px-2.5 py-1 rounded-full font-bold">Kecurangan: <span id="cheat-badge">0</span>/3</span>
+            <span class="text-xs bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full font-bold">Terjawab: <span id="answered-badge">0</span>/50</span>
+          </div>
+        </div>
+
+        <h4 class="font-bold text-sm text-gray-700 mb-3">Navigasi Peta Soal:</h4>
+        <div id="navigation-grid" class="grid grid-cols-5 gap-2 max-h-[350px] overflow-y-auto pr-1">
+          <!-- Tombol navigasi soal digenerate lewat JS -->
+        </div>
+      </aside>
+
+      <!-- Kanan: Area Kertas Soal -->
+      <article class="w-full lg:w-3/4 flex flex-col justify-between">
+        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-200 flex-grow">
+          <div class="flex justify-between items-center mb-6 pb-2 border-b border-gray-100">
+            <span class="text-sm font-bold text-blue-800" id="question-number-title">Soal No. 1 dari 50</span>
+            <span class="text-xs text-gray-400">Pilih jawaban yang menurut Anda paling benar!</span>
+          </div>
+
+          <!-- Bagian khusus Penampilan Foto/Gambar Soal (jika link ditambahkan pada array SOAL_UJIAN) -->
+          <div id="question-image-container" class="hidden mb-6 flex justify-center">
+            <img id="question-image" src="" alt="Gambar Soal" class="max-h-64 object-contain rounded-xl border border-gray-200 shadow-sm">
+          </div>
+
+          <p id="question-text" class="text-base md:text-lg text-gray-800 font-semibold leading-relaxed mb-6">
+            Sinta sedang berlatih tari tradisional...
+          </p>
+
+          <div id="options-container" class="space-y-3">
+            <!-- Pilihan ganda digenerate lewat JS -->
+          </div>
+        </div>
+
+        <!-- Tombol Navigasi Bawah -->
+        <footer class="mt-6 flex justify-between items-center bg-white p-4 rounded-xl border border-gray-200">
+          <button id="btn-prev" class="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg font-bold transition disabled:opacity-40">
+            ← Sebelumnya
+          </button>
+          
+          <button id="btn-next" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold transition">
+            Selanjutnya →
+          </button>
+          
+          <button id="btn-submit" class="hidden px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition shadow-md">
+            KIRIM JAWABAN
+          </button>
+        </footer>
+      </article>
+
+    </section>
+
+    <!-- 4. HALAMAN SELESAI (SUKSES) -->
+    <section id="view-finished" class="hidden flex justify-center items-center py-8">
+      <div class="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full border-t-8 border-green-600 text-center">
+        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <h2 class="text-3xl font-extrabold text-green-700">Ujian Selesai!</h2>
+        <p id="finish-message" class="text-sm text-gray-600 mt-2 mb-6">
+          Jawaban Anda telah berhasil diproses dan dikirim langsung ke server database sekolah.
+        </p>
+
+        <div class="p-4 bg-gray-50 border border-gray-200 rounded-xl text-left space-y-2.5 mb-6 text-sm">
+          <p><strong>Nama Lengkap:</strong> <span id="finished-student-name"></span></p>
+          <p><strong>Kelas:</strong> Kelas <span id="finished-student-class"></span></p>
+        </div>
+
+        <p class="text-xs text-gray-400 font-medium">Layar komputer atau smartphone ini aman untuk ditutup sekarang.</p>
+
+        <button id="btn-reset-testing" class="mt-8 text-blue-500 hover:text-blue-700 underline text-xs font-semibold focus:outline-none block mx-auto">
+          Mulai Ujian Baru (Simulasi)
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER SEKOLAH ================= -->
+  <footer class="bg-gray-800 text-gray-400 text-center py-4 text-xs border-t border-gray-700 mt-8">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>© 2026 SMP Negeri 1 Karimun. Semua hak dilindungi undang-undang.</p>
+      <p class="mt-1 text-[10px] text-gray-500">Dikembangkan khusus untuk Evaluasi Akhir TA 2025/2026 Seni Tari Kelas IX.</p>
+    </div>
+  </footer>
+
+  <!-- ================= NOTIFIKASI MODAL KUSTOM (MENGHINDARI ALERT BROWSER) ================= -->
+  <div id="custom-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+    <div class="bg-white p-6 rounded-2xl shadow-2xl max-w-sm w-full border-t-4 border-blue-600 text-center bounce-short">
+      <h3 id="modal-title" class="text-lg font-extrabold text-gray-900 mb-2">Pemberitahuan</h3>
+      <p id="modal-desc" class="text-sm text-gray-600 mb-6 leading-relaxed">Pesan modal kustom.</p>
+      <div class="flex gap-3 justify-center">
+        <button id="modal-btn-cancel" class="hidden px-5 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-xl font-bold transition text-sm">Batal</button>
+        <button id="modal-btn-ok" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold transition text-sm">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= IFRAME TERSEMBUNYI UNTUK PENGIRIMAN DATA SILENT ================= -->
+  <iframe name="hidden_gas_iframe" id="hidden_gas_iframe" class="hidden"></iframe>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // === KONFIGURASI GAS URL SPREADSHEET ===
+    const GAS_URL = "https://script.google.com/macros/s/AKfycby28FV2U_usp3Y6mNlPavMJ5bkEFrqhcufy-aaOlDpA1--JWVASAa11l53CLn4OFq6cHQ/exec"; 
+    const TOKENS = ["TARI123", "ST 123", "SENI 2026", "ST2026"];
+
+    // === DATA SOAL UJIAN (50 SOAL) ===
+    // Anda bisa memasukkan link foto/gambar di properti img (contoh: img: "https://link-foto-anda.com/gambar.jpg")
+    const SOAL_UJIAN = [
+      { q: "Sinta sedang berlatih tari tradisional. Instrukturnya meminta Sinta untuk menggerakkan kepala ke samping kiri dan kanan dengan gerakan yang patah-patah dan cepat namun tetap anggun. Gerakan kepala yang sedang dipelajari Sinta disebut..", options: ["Galier", "Gilek", "Kedet", "Jiling"], answer: 2, img: "" },
+      { q: "Dalam sebuah pementasan, seorang penari membentuk lingkaran kecil menggunakan ibu jari dan jari telunjuk, sementara jari-jari lainnya melengkung indah ke arah luar. Posisi tangan yang menyerupai bunga yang sedang kuncup atau menyimbolkan kehalusan ini disebut teknik...", options: ["Nyekiting", "Ngrayung", "Nyempurit", "Ulap-ulap"], answer: 2, img: "" },
+      { q: "Seorang koreografer mengarahkan penari untuk melakukan posisi merendah dengan menekuk kedua lutut ke arah luar dan menjaga punggung tetap tegak lurus. Hal ini dilakukan agar penari memiliki kuda-kuda yang kuat sebelum melakukan lompatan. Posisi badan merendah ini dikenal dengan istilah...", options: ["Mendak", "Leyek", "Ngelier", "Ogleng"], answer: 0, img: "" },
+      { q: "Budi sedang menarikan tari perang. Ia bergerak maju dengan cara mengangkat salah satu kaki setinggi betis secara bergantian dengan langkah yang mantap dan tegas. Gerakan dasar kaki yang dilakukan Budi adalah...", options: ["Debeg", "Gejug", "Kenser", "Srisig"], answer: 1, img: "" },
+      { q: "Seorang penari ingin menggambarkan karakter burung merak yang sedang waspada. Ia menolehkan kepala ke kanan dan ke kiri dengan luwes (galier) diikuti dengan gerakan tangan yang menyilang di depan dada (ngruji). Koordinasi gerak ini bertujuan untuk menunjukkan...", options: ["Kekuatan fisik penari", "Dinamika dan ekspresi karakter", "Kecepatan tempo music", "Keseimbangan tubuh penari"], answer: 1, img: "" },
+      { q: "Lani melakukan gerakan menggeser telapak kaki ke arah samping tanpa mengangkat kaki dari lantai, hanya dengan tumpuan tumit dan ujung jari secara bergantian. Gerakan ini membuat badan Lani tampak bergeser secara halus. Nama gerakan kaki tersebut adalah...", options: ["Tanjak", "Kenser", "Mendak", "Junjungan"], answer: 1, img: "" },
+      { q: "Saat melakukan gerak memutar pergelangan tangan hingga posisi tangan kembali ke sikap semula (ukel), seorang penari menyadari bahwa gerakan tersebut kurang luwes. Untuk memperbaiki estetika gerak tangan tersebut, hal yang harus diperhatikan adalah...", options: ["Kekakuan pada bahu", "Kelenturan pergelangan tangan", "Kecepatan gerak kaki", "Posisi kepala yang tegak"], answer: 1, img: "" },
+      { q: "Dalam sebuah tarian melayu, penari melakukan gerakan 'Patah Sembilan'. Ketika tangan bergerak menjauh, kepala mengikuti arah tangan, namun sesaat kemudian kepala kembali menoleh ke arah depan dengan cepat. Fungsi gerak kepala dalam narasi ini adalah...", options: ["Menghilangkan rasa pusing", "Memberi aksen dan mempertegas gerak tangan", "Menyesuaikan dengan ketukan kendang", "Mengatur pernapasan penari"], answer: 1, img: "" },
+      { q: "Seorang penari berdiri dengan posisi badan condong ke arah kanan (leyek kanan), namun pandangan mata tetap tajam ke arah depan. Posisi badan ini biasanya digunakan dalam tarian tradisional untuk memberikan kesan..", options: ["Malas dan tidak bersemangat", "Keanggunan yang dinamis dan waspada", "Kelelahan setelah menari lama", "Persiapan untuk duduk bersila"], answer: 1, img: "" },
+      { q: "Dina harus menciptakan kreasi tari yang menggabungkan gerak kepala 'pancot' dengan gerak tangan 'sembah'. Agar transisi antara gerak kepala dan tangan terlihat harmonis dan tidak kaku, Dina sebaiknya...", options: ["Melakukan gerakan secepat mungkin", "Memastikan arah pandangan mata sinkron dengan gerak tangan", "Menghentikan napas saat melakukan transisi", "Mengurangi gerakan kaki agar fokus pada tangan"], answer: 1, img: "" },
+      { q: "Seorang koreografer sedang menyusun strategi agar penari tidak saling bertabrakan saat berpindah tempat dan panggung terlihat seimbang. Langkah yang dilakukan koreografer ini berkaitan dengan penyusunan...", options: ["Tata busana", "Pola lantai", "Iringan music", "Properti tari"], answer: 1, img: "" },
+      { q: "Dalam Tari Saman, para penari duduk berjejer lurus ke samping dari kanan ke kiri. Pola lantai yang digunakan dalam posisi ini disebut...", options: ["Diagonal", "Vertical", "Lingkaran", "Horizontal"], answer: 3, img: "" },
+      { q: "Sekelompok penari ingin membawakan tarian yang melambangkan kelembutan dan hubungan antarmanusia yang tidak terputus. Mereka memilih bergerak membentuk lengkungan atau lingkaran. Kesan yang ingin ditimbulkan dari pola lantai garis lengkung ini adalah...", options: ["Luwes dan manis", "Tegas dan kuat", "Sombong dan angkuh", "Kaku dan statis"], answer: 0, img: "" },
+      { q: "Seorang penari utama berdiri di depan, diikuti dua penari di belakangnya yang agak ke samping kiri and kanan, membentuk huruf 'V'. Jika dilihat dari atas, formasi ini termasuk ke dalam pengembangan pola...", options: ["Melengkung", "Tak beraturan", "Lingkaran", "Garis lurus"], answer: 3, img: "" },
+      { q: "Dalam tarian keraton yang bersifat sakral, penari sering berbaris lurus dari depan ke belakang menghadap ke arah penonton atau raja. Makna atau kesan filosofis dari pola lantai vertikal ini adalah...", options: ["Kekacauan di medan perang", "Kebersamaan antar rakyat", "Keluwesan air mengalir", "Kejujuran dan hubungan dengan Tuhan"], answer: 3, img: "" },
+      { q: "Perhatikan deskripsi berikut: 'Lima penari berdiri di posisi yang membentuk garis miring dari sudut kiri depan panggung menuju sudut kanan belakang panggung'. Deskripsi ini menunjukkan gambar pola lantai...", options: ["Segitiga", "Diagonal", "Lingkaran", "Horizontal"], answer: 1, img: "" },
+      { q: "Andi memiliki 5 orang penari dalam kelompoknya. Ia ingin membuat formasi yang simetris di mana ada satu orang sebagai pusat perhatian di tengah. Pola lantai yang paling tepat untuk tujuan ini adalah...", options: ["Segitiga atau V", "Diagonal satu baris", "Segi empat", "Garis lurus vertical"], answer: 0, img: "" },
+      { q: "Saat terjadi transisi pola lantai dari lingkaran ke baris lurus, penari seringkali bingung arah jalannya. Agar perpindahan ini terlihat estetis dan lancar, hal utama yang harus dilakukan penari adalah...", options: ["Berlari secepat mungkin", "Melihat ke arah kaki teman", "Menghafal hitungan dan jalur perpindahan", "Berhenti menari sejenak"], answer: 2, img: "" },
+      { q: "Tari kreasi baru yang bertema 'Kegigihan Pemuda' membutuhkan pola lantai yang memberikan kesan dinamis, energik, dan tidak membosankan. Pola lantai yang paling cocok digunakan adalah...", options: ["Zig – zag atau kombinasi garis lurus", "Lengkung ular", "Lingkaran besar", "Garis lurus horizontal terus menerus"], answer: 0, img: "" },
+      { q: "Budi dan teman-temannya sedang menari. Budi berada di depan kanan, sedangkan temannya tepat berada di belakang kirinya, membentuk garis miring. Pola ini berbeda dengan barisan saat upacara bendera. Perbedaan utamanya terletak pada...", options: ["Kemiringan garis (diagonal vs vertical)", "Busana yang digunakan", "Arah hadap penari", "Kecepatan Gerak kaki"], answer: 0, img: "" },
+      { q: "Dalam tari kreasi bertema pertempuran, penari dibagi menjadi dua kelompok yang saling berhadapan. Agar panggung terlihat penuh dan mencekam, koreografer menggunakan pola lantai garis lurus yang saling silang. Teknik ini disebut penggunaan pola lantai secara...", options: ["Simetris", "Statis", "Komposisi garis silang (diagonal berlawanan)", "Asimetris"], answer: 2, img: "" },
+      { q: "Pola lantai melingkar sering digunakan dalam tarian rakyat yang melibatkan banyak orang. Secara psikologis, pola lantai lingkaran ini melambangkan...", options: ["Kebersamaan dan persatuan", "Persiapan untuk menyerang", "Tingkatan kelas social", "Perpecahan antar warga"], answer: 0, img: "" },
+      { q: "Sebuah kelompok tari harus tampil di panggung yang sangat sempit dan memanjang ke samping. Pola lantai yang paling sulit dilakukan adalah...", options: ["Segitiga kecil", "Horizontal", "Vertical yang Panjang ke belakang", "Diagonal pendek"], answer: 2, img: "" },
+      { q: "Seorang penari bergerak mengikuti garis melengkung yang terus menyambung membentuk dua lingkaran yang saling bertautan, menyerupai angka 8. Pola lantai ini disebut...", options: ["Pola elips", "Pola busur", "Pola angka delapan", "Pola spiral"], answer: 2, img: "" },
+      { q: "Ketepatan penari dalam mencapai titik koordinat pola lantai sangat bergantung pada iringan musik. Jika seorang penari sampai di posisinya mendahului hitungan musik, maka tarian tersebut akan terlihat...", options: ["Sangat professional", "Mengesankan penonton", "Lebih dinamis", "Tidak harmonis atau balapan"], answer: 3, img: "" },
+      { q: "Tari Kecak dari Bali dilakukan oleh puluhan pria yang duduk melingkar sambil menyerukan suara 'cak-cak-cak' secara ritmis. Suara yang dihasilkan oleh para penari itu sendiri dalam konsep musik tari disebut...", options: ["Iringan eksternal", "Iringan internal", "Music instrument", "Iringan melodis"], answer: 1, img: "" },
+      { q: "Dalam sebuah latihan, seorang koreografer meminta pemusik untuk memberikan ketukan yang konstan menggunakan Kendang agar penari bisa menjaga tempo gerakannya. Kendang dalam hal ini berfungsi sebagai alat musik...", options: ["Melodis", "Harmonis", "Ritmis", "Statis"], answer: 2, img: "" },
+      { q: "Rina sedang menarikan tari kreasi bertema 'Duka di Padang Pasir'. Musik yang mengiringinya menggunakan petikan kecapi yang menyayat hati tanpa iringan alat musik lain. Fungsi musik kecapi di sini adalah...", options: ["Mengatur tempo langkah penari", "Membangun suasana atau atmosfer cerita", "Sebagai pengganti properti tari", "Menandai perubahan pola lantai"], answer: 1, img: "" },
+      { q: "Seorang pemusik mengiringi tari modern menggunakan gitar and piano. Alat musik ini mampu mengeluarkan rangkaian nada sekaligus (akor) untuk memperkaya warna musik. Alat musik tersebut tergolong jenis...", options: ["Ritmis", "Harmonis", "Melodis", "Perkusi"], answer: 1, img: "" },
+      { q: "Pada pementasan tari 'Panen Padi', penari membawa caping dan bakul yang digunakan secara aktif dalam gerakan. Namun, di sudut panggung terdapat replika pohon padi yang tidak disentuh penari. Replika pohon padi tersebut disebut sebagai...", options: ["Property tari", "Aksesoris busana", "Set property (property panggung)", "Kostum utama"], answer: 2, img: "" },
+      { q: "Seorang penari pria menggunakan properti berupa keris yang diselipkan di pinggang belakang. Saat adegan peperangan, keris tersebut dicabut dan digunakan untuk menusuk lawan. Penggunaan properti ini bertujuan untuk...", options: ["Membuat penari terlihat gagah saja", "Mempertegas karakter dan makna gerakan", "Mempersulit Gerakan penari", "Menutupi kekurangan Teknik Gerak"], answer: 1, img: "" },
+      { q: "Tari kreasi bertema 'Burung Cendrawasih' menggunakan busana dengan sayap kain yang lebar dan ringan. Mengapa bahan kain yang digunakan harus ringan?", options: ["Agar harganya lebih murah", "Agar tidak mudah kotor saat menyentuh lantai", "Agar penari tetap leluasa bergerak dan kain bisa melayang indah", "Karena bahan kain tebal sulit dijahit"], answer: 2, img: "" },
+      { q: "Sekelompok penari melakukan gerakan tepuk tangan, tepuk dada, dan petikan jari secara bergantian sehingga menghasilkan bunyi yang harmonis. Jenis iringan ini disebut iringan internal karena...", options: ["Menggunakan bantuan alat music tradisional", "Suara berasal dari rekaman kaset atau CD", "Bunyi dihasilkan dari bagian tubuh penari", "Dilakukan di dalam ruangan tertutup (internal)"], answer: 2, img: "" },
+      { q: "Desi ingin membuat tari kreasi tentang 'Petani Milenial'. Ia keputusan untuk tidak menggunakan baju petani tradisional (kebaya/pangsi), melainkan menggunakan celana kargo dan kaos polo. Hal ini diperbolehkan dalam tari kreasi karena tata busana harus...", options: ["Selalu mengikuti pakem klasik", "Sesuai dengan ide/konsep Garapan koreografer", "Semahal mungkin agar terlihat mewah", "Menggunakan bahan kulit hewan"], answer: 1, img: "" },
+      { q: "Di atas kepala seorang penari Tari Srikandi terdapat hiasan berupa mahkota kecil dan ukiran sayap di belakang telinga (sumping). Fungsi aksesoris tersebut adalah...", options: ["Sebagai alat untuk menyembunyikan rambut penari", "Memberikan identitas tokoh dan memperindah estetika wajah", "Untuk menjaga keseimbangan kepala penari", "Sebagai tempat meletakkan mikrofon"], answer: 1, img: "" },
+      { q: "Alat musik seperti Suling dan Terompet hanya mampu mengeluarkan satu nada pada satu waktu. Dalam struktur iringan tari, alat musik ini berperan as pembawa...", options: ["Ritme", "Melodi", "Akor", "Beat"], answer: 1, img: "" },
+      { q: "Seorang penari menggunakan selendang (sampur) yang diikatkan di pinggang. Selendang tersebut sering dilempar dan disampirkan di pundak untuk memperhalus gerakan tangan. Selendang dalam hal ini dikategorikan sebagai...", options: ["Property tari", "Property panggung", "Dasar busana", "Latar belakang"], answer: 0, img: "" },
+      { q: "Bayu ingin menampilkan tari bertema 'Kehidupan Nelayan'. Musik iringannya diambil dari suara deburan ombak dan angin yang direkam secara digital. Suara-suara alam yang dijadikan musik pengiring tari ini termasuk dalam...", options: ["Iringan internal", "Iringan eksternal", "Iringan ritmis", "Iringan harmonis"], answer: 1, img: "" },
+      { q: "Dalam tari 'Piring' dari Sumatera Barat, penari memegang piring di kedua telapak tangannya. Piring tersebut tidak boleh jatuh meskipun penari melakukan gerakan salto. Jenis properti ini disebut properti wajib karena...", options: ["Harganya sangat mahal", "Menjadi ciri khas dan bagian tak terpisahkan dari struktur tari tersebut", "Digunakan untuk menaruh makanan setelah menari", "Pemberian dari leluhur"], answer: 1, img: "" },
+      { q: "Penari tari kreasi 'Api' menggunakan kostum berwarna merah membara dengan potongan yang asimetris. Pemilihan warna merah ini merupakan penerapan konsep tata busana sebagai...", options: ["Pelindung tubuh penari", "Simbolis karakter atau tema (api)", "Alat bantu pernapasan", "Formalitas pementasan"], answer: 1, img: "" },
+      { q: "Alat musik gendang, tifa, dan rebana memiliki kesamaan fungsi yaitu untuk mengatur jalannya tarian. Jika pemain musik mempercepat ketukan, maka penari akan...", options: ["Berhenti menari", "Mempercepat gerakannya sesuai irama", "Mengubah kostumnya", "Menjatuhkan propertinya"], answer: 1, img: "" },
+      { q: "Shinta mengenakan kalung, gelang, dan kelat bahu yang berkilauan saat menari tari persembahan. Unsur-unsur ini dalam tata busana disebut...", options: ["Pakaian dasar", "Pakaian tubuh", "Aksesoris (perhiasan)", "Penutup kepala"], answer: 2, img: "" },
+      { q: "Tari Saman menggunakan gerakan tepuk tangan ke dada dan lantai secara cepat. Jika salah satu penari tidak konsentrasi dan melakukan tepukan yang salah, maka iringan tari tersebut akan...", options: ["Tetap bagus karena musiknya dari kaset", "Menjadi kacau karena iringan dan geraknya menyatu", "Tidak berpengaruh pada penari lain", "Menghasilkan melodi yang baru"], answer: 1, img: "" },
+      { q: "Properti berupa payung dalam tari 'Payung' melambangkan perlindungan kasih sayang. Jika dalam tari kreasi payung tersebut diganti dengan jaket yang didekap, maka...", options: ["Tarian tersebut dianggap gagal", "Terjadi perubahan makna simbolis namun tetap sah sebagai kreasi", "Penari akan dikenakan sanksi adat", "Penonton tidak akan mengerti"], answer: 1, img: "" },
+      { q: "Seorang penari menggunakan make-up karakter dengan garis-garis tegas berwarna hitam dan merah untuk memerankan tokoh raksasa. Hal ini merupakan keterkaitan antara tata rias dengan...", options: ["Tata busana", "Music iringan", "Properti panggung", "Lighting"], answer: 0, img: "" },
+      { q: "Musik pengiring tari yang menggunakan kombinasi antara gong (ritmis) dan bonang (melodis) menghasilkan tekstur musik yang lengkap. Jika musik tersebut berhenti tiba-tiba, biasanya penari akan menggunakan tanda tersebut sebagai...", options: ["Kode untuk memulai tarian", "Kode untuk mengakhiri tarian (Gerak penutup)", "Waktu untuk istirahat di panggung", "Tanda untuk mengganti busana"], answer: 1, img: "" },
+      { q: "Penggunaan kain batik dengan motif tertentu pada tari tradisional biasanya memiliki aturan (pakem). Namun pada tari kreasi, kain batik boleh dimodifikasi menjadi rok mini atau celana. Hal ini menunjukkan bahwa tari kreasi bersifat...", options: ["Kaku dan sacral", "Bebas namun tetap mempertimbangkan estetika", "Tidak menghargai budaya asli", "Hanya untuk hiburan sesaat"], answer: 1, img: "" },
+      { q: "Alat musik harmonis yang sering digunakan untuk mengiringi tari kreasi modern karena praktis dan bisa menghasilkan berbagai suara alat musik lain adalah...", options: ["Seruling", "Keyboard", "Tamborin", "Triangle"], answer: 1, img: "" },
+      { q: "Seorang penari melakukan gerak 'Ulap-ulap' menggunakan properti kipas. Kipas tersebut dibuka dan ditutup dengan suara 'cetak' yang nyaring. Suara kipas ini secara tidak langsung berfungsi sebagai...", options: ["Iringan internal tambahan", "Gangguan bunyi", "Music eksternal", "Alat music melodis"], answer: 0, img: "" },
+      { q: "Mengapa penari harus melakukan fitting (mencoba busana) jauh sebelum hari pementasan?", options: ["Agar busana tidak hilang", "Untuk memastikan busana pas, nyaman, dan tidak mengganggu ruang Gerak saat menari", "Agar penari terlihat cantik di depan kaca", "Sebagai syarat administrasi pementasan"], answer: 1, img: "" }
+    ];
+
+    // === STATE APLIKASI UTAMA ===
+    let state = {
+      appState: 'LOGIN', // LOGIN, EXAM, CHEAT_LOCK, FINISHED
+      student: { name: '', gender: 'Laki-laki', class: '9.5' },
+      cheatCount: 0,
+      answers: {},
+      currentQuestion: 0,
+      isSubmitting: false
+    };
+
+    // === RUN ON LOAD ===
+    window.addEventListener('DOMContentLoaded', () => {
+      loadProgress();
+      renderApp();
+    });
+
+    // === PERSISTENCE (LOCAL STORAGE) ===
+    function saveProgress() {
+      if (state.appState !== 'LOGIN') {
+        localStorage.setItem('ujian_tari_progress_html', JSON.stringify(state));
+      }
+    }
+
+    function loadProgress() {
+      const saved = localStorage.getItem('ujian_tari_progress_html');
+      if (saved) {
+        state = JSON.parse(saved);
+      }
+    }
+
+    function clearSavedProgress() {
+      localStorage.removeItem('ujian_tari_progress_html');
+    }
+
+    // === ANTI-CHEAT BLUR DETECTION ===
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden && state.appState === 'EXAM') {
+        triggerCheatDetected();
+      }
+    });
+
+    function triggerCheatDetected() {
+      state.cheatCount += 1;
+      
+      if (state.cheatCount > 3) {
+        // Otomatis kunci di finished dan submit data
+        state.appState = 'FINISHED';
+        saveProgress();
+        renderFinished();
+        submitExamData();
+      } else {
+        state.appState = 'CHEAT_LOCK';
+        saveProgress();
+        renderCheatLock();
+      }
+    }
+
+    // === RENDER ROUTER ===
+    function renderApp() {
+      // Sembunyikan semua section terlebih dahulu
+      document.getElementById('view-login').classList.add('hidden');
+      document.getElementById('view-cheat-lock').classList.add('hidden');
+      document.getElementById('view-finished').classList.add('hidden');
+      document.getElementById('view-exam').classList.add('hidden');
+      document.getElementById('header-user-info').classList.add('hidden');
+
+      if (state.appState === 'LOGIN') {
+        renderLogin();
+      } else if (state.appState === 'CHEAT_LOCK') {
+        renderCheatLock();
+      } else if (state.appState === 'EXAM') {
+        renderExam();
+      } else if (state.appState === 'FINISHED') {
+        renderFinished();
+      }
+    }
+
+    // === 1. LOGIN SCREEN RENDERING ===
+    function renderLogin() {
+      document.getElementById('view-login').classList.remove('hidden');
+      
+      const form = document.getElementById('form-login');
+      // Set input values from state if loaded
+      document.getElementById('input-name').value = state.student.name;
+      document.getElementById('select-gender').value = state.student.gender;
+      document.getElementById('select-class').value = state.student.class;
+
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        const tokenInput = document.getElementById('input-token').value.trim().toUpperCase();
+        
+        if (tokenInput === TOKENS[0]) {
+          state.student.name = document.getElementById('input-name').value.trim();
+          state.student.gender = document.getElementById('select-gender').value;
+          state.student.class = document.getElementById('select-class').value;
+          state.appState = 'EXAM';
+          saveProgress();
+          renderApp();
+        } else {
+          showCustomModal("Token Salah", "Token awal yang Anda masukkan salah. Gunakan token awal ujian yang diberikan pengawas.");
+        }
+      };
+    }
+
+    // === 2. CHEAT LOCK SCREEN RENDERING ===
+    function renderCheatLock() {
+      document.getElementById('view-cheat-lock').classList.remove('hidden');
+      
+      const labelReq = document.getElementById('label-token-req');
+      labelReq.textContent = `Masukkan Token Pemulihan Ke-${state.cheatCount + 1}`;
+      
+      const formUnlock = document.getElementById('form-unlock');
+      const inputUnlock = document.getElementById('input-unlock-token');
+      inputUnlock.value = '';
+      inputUnlock.placeholder = TOKENS[state.cheatCount] || "ST 123";
+
+      formUnlock.onsubmit = (e) => {
+        e.preventDefault();
+        const enteredToken = inputUnlock.value.trim().toUpperCase();
+        const requiredToken = TOKENS[state.cheatCount];
+
+        if (enteredToken === requiredToken) {
+          state.appState = 'EXAM';
+          saveProgress();
+          renderApp();
+        } else {
+          showCustomModal("Token Salah", `Token Pemulihan Ke-${state.cheatCount + 1} yang Anda masukkan tidak sesuai. Harap minta kembali token yang valid ke guru pengawas.`);
+        }
+      };
+    }
+
+    // === 3. EXAM DASHBOARD RENDERING ===
+    function renderExam() {
+      document.getElementById('view-exam').classList.remove('hidden');
+      
+      // Update User Info Header
+      document.getElementById('header-user-info').classList.remove('hidden');
+      document.getElementById('display-student-name').textContent = state.student.name;
+      document.getElementById('display-student-class').textContent = state.student.class;
+
+      // Update Side Info Badges
+      document.getElementById('cheat-badge').textContent = state.cheatCount;
+      
+      const answeredCount = Object.keys(state.answers).length;
+      document.getElementById('answered-badge').textContent = answeredCount;
+
+      renderNavigationGrid();
+      renderQuestionCard();
+    }
+
+    // Render Side Grid Buttons
+    function renderNavigationGrid() {
+      const grid = document.getElementById('navigation-grid');
+      grid.innerHTML = '';
+
+      SOAL_UJIAN.forEach((_, idx) => {
+        const btn = document.createElement('button');
+        btn.textContent = idx + 1;
+        
+        const isAnswered = state.answers[idx] !== undefined;
+        const isCurrent = state.currentQuestion === idx;
+
+        let baseClasses = "w-10 h-10 rounded-xl font-bold text-sm flex items-center justify-center border transition-all duration-150 ";
+        
+        if (isCurrent) {
+          baseClasses += "ring-2 ring-blue-600 border-blue-600 scale-105 shadow-md bg-blue-50 text-blue-800";
+        } else if (isAnswered) {
+          baseClasses += "bg-green-500 text-white border-green-600 hover:bg-green-600";
+        } else {
+          baseClasses += "bg-gray-100 text-gray-700 hover:bg-gray-200 border-gray-300";
+        }
+
+        btn.className = baseClasses;
+        btn.onclick = () => {
+          state.currentQuestion = idx;
+          saveProgress();
+          renderExam();
+        };
+
+        grid.appendChild(btn);
+      });
+    }
+
+    // Render Current Question Details
+    function renderQuestionCard() {
+      const q = SOAL_UJIAN[state.currentQuestion];
+      document.getElementById('question-number-title').textContent = `Soal No. ${state.currentQuestion + 1} dari 50`;
+      document.getElementById('question-text').textContent = q.q;
+
+      // Handle Image Display
+      const imageContainer = document.getElementById('question-image-container');
+      const questionImage = document.getElementById('question-image');
+      if (q.img && q.img.trim() !== "") {
+        questionImage.src = q.img;
+        imageContainer.classList.remove('hidden');
+      } else {
+        imageContainer.classList.add('hidden');
+        questionImage.src = "";
+      }
+
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      const letters = ['A', 'B', 'C', 'D'];
+      q.options.forEach((opt, idx) => {
+        const label = document.createElement('label');
+        const isSelected = state.answers[state.currentQuestion] === idx;
+
+        let baseClasses = "flex items-center p-4 border rounded-xl cursor-pointer transition-all duration-150 ";
+        if (isSelected) {
+          baseClasses += "bg-blue-50 border-blue-500 shadow-sm ring-1 ring-blue-500";
+        } else {
+          baseClasses += "hover:bg-gray-50 border-gray-200";
+        }
+        label.className = baseClasses;
+
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = `option-${state.currentQuestion}`;
+        radio.checked = isSelected;
+        radio.className = "w-5 h-5 text-blue-600 focus:ring-blue-400";
+        radio.onchange = () => {
+          state.answers[state.currentQuestion] = idx;
+          saveProgress();
+          renderExam(); // Refresh to update answered states and options
+        };
+
+        const span = document.createElement('span');
+        span.className = "ml-3 text-gray-700 font-medium";
+        span.textContent = `${letters[idx]}. ${opt}`;
+
+        label.appendChild(radio);
+        label.appendChild(span);
+        container.appendChild(label);
+      });
+
+      // Update Nav buttons at the bottom
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const btnSubmit = document.getElementById('btn-submit');
+
+      btnPrev.disabled = state.currentQuestion === 0;
+
+      if (state.currentQuestion === SOAL_UJIAN.length - 1) {
+        btnNext.classList.add('hidden');
+        btnSubmit.classList.remove('hidden');
+      } else {
+        btnNext.classList.remove('hidden');
+        btnSubmit.classList.add('hidden');
+      }
+
+      btnPrev.onclick = () => {
+        if (state.currentQuestion > 0) {
+          state.currentQuestion -= 1;
+          saveProgress();
+          renderExam();
+        }
+      };
+
+      btnNext.onclick = () => {
+        if (state.currentQuestion < SOAL_UJIAN.length - 1) {
+          state.currentQuestion += 1;
+          saveProgress();
+          renderExam();
+        }
+      };
+
+      btnSubmit.onclick = () => {
+        showCustomConfirm(
+          "Kirim Jawaban?", 
+          "Pastikan semua soal telah terjawab. Setelah dikirim, Anda tidak dapat mengubah jawaban Anda kembali.", 
+          () => {
+            state.appState = 'FINISHED';
+            saveProgress();
+            renderFinished();
+            submitExamData();
+          }
+        );
+      };
+    }
+
+    // === 4. FINISHED SCREEN RENDERING ===
+    function renderFinished() {
+      document.getElementById('view-finished').classList.remove('hidden');
+      
+      document.getElementById('finished-student-name').textContent = state.student.name;
+      document.getElementById('finished-student-class').textContent = state.student.class;
+
+      if (state.isSubmitting) {
+        document.getElementById('finish-message').textContent = "Jawaban sedang dikirim, harap tunggu sebentar...";
+      } else {
+        document.getElementById('finish-message').textContent = "Jawaban Anda telah berhasil diproses dan dikirim langsung ke server database sekolah.";
+      }
+
+      const resetBtn = document.getElementById('btn-reset-testing');
+      resetBtn.onclick = () => {
+        showCustomConfirm(
+          "Reset Sesi Ujian?", 
+          "Sesi lokal Anda akan di-reset untuk kebutuhan pengujian ulang simulasi.", 
+          () => {
+            clearSavedProgress();
+            state = {
+              appState: 'LOGIN',
+              student: { name: '', gender: 'Laki-laki', class: '9.5' },
+              cheatCount: 0,
+              answers: {},
+              currentQuestion: 0,
+              isSubmitting: false
+            };
+            renderApp();
+          }
+        );
+      };
+    }
+
+    // === SUBMIT DATA TO GOOGLE SPREADSHEET (SILENT VIA FORM IFRAME) ===
+    function submitExamData() {
+      state.isSubmitting = true;
+      saveProgress();
+
+      const optionLetters = ['A', 'B', 'C', 'D'];
+      const formattedAnswers = Array(50).fill("-");
+      Object.keys(state.answers).forEach(key => {
+        formattedAnswers[parseInt(key)] = optionLetters[state.answers[key]];
+      });
+
+      const payload = {
+        nama: state.student.name,
+        jenisKelamin: state.student.gender,
+        kelas: state.student.class,
+        jumlahKecurangan: state.cheatCount,
+        skorAkhir: calculateScore(),
+        jawaban: formattedAnswers
+      };
+
+      try {
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = GAS_URL;
+        form.target = 'hidden_gas_iframe'; // Targetkan ke hidden iframe di body HTML
+
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'data';
+        input.value = JSON.stringify(payload);
+        form.appendChild(input);
+
+        document.body.appendChild(form);
+        form.submit();
+
+        setTimeout(() => {
+          document.body.removeChild(form);
+          state.isSubmitting = false;
+          saveProgress();
+          renderFinished();
+        }, 1200);
+
+      } catch (error) {
+        console.error(error);
+        state.isSubmitting = false;
+        saveProgress();
+        renderFinished();
+      }
+    }
+
+    // === MENGKOREKSI KALKULASI SKOR GURU (soal.answer) ===
+    function calculateScore() {
+      let correct = 0;
+      SOAL_UJIAN.forEach((soal, index) => {
+        if (state.answers[index] === soal.answer) {
+          correct += 1;
+        }
+      });
+      let rawScore = correct * 2;
+      let penalty = state.cheatCount * 2;
+      return Math.max(0, rawScore - penalty); 
+    }
+
+    // === CUSTOM POPUP MODAL (REPLACES BROWSER ALERT) ===
+    function showCustomModal(title, desc) {
+      const modal = document.getElementById('custom-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalDesc = document.getElementById('modal-desc');
+      const btnCancel = document.getElementById('modal-btn-cancel');
+      const btnOk = document.getElementById('modal-btn-ok');
+
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+
+      btnCancel.classList.add('hidden');
+      btnOk.textContent = "OK";
+      
+      btnOk.onclick = () => {
+        modal.classList.add('hidden');
+      };
+
+      modal.classList.remove('hidden');
+    }
+
+    // === CUSTOM CONFIRM MODAL ===
+    function showCustomConfirm(title, desc, onConfirm) {
+      const modal = document.getElementById('custom-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalDesc = document.getElementById('modal-desc');
+      const btnCancel = document.getElementById('modal-btn-cancel');
+      const btnOk = document.getElementById('modal-btn-ok');
+
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+
+      btnCancel.classList.remove('hidden');
+      btnOk.textContent = "Ya, Lanjutkan";
+
+      btnCancel.onclick = () => {
+        modal.classList.add('hidden');
+      };
+
+      btnOk.onclick = () => {
+        modal.classList.add('hidden');
+        onConfirm();
+      };
+
+      modal.classList.remove('hidden');
+    }
+
+  </script>
+</body>
+</html>
